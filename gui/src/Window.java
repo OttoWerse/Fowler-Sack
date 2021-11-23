@@ -1,6 +1,6 @@
 import javax.swing.*;
 
-public class main {
+public class Window {
     public static void main(String[] args) {
         JFrame f=new JFrame();
         f.setSize(800,400);
