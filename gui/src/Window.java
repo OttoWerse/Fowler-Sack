@@ -12,7 +12,12 @@ public class Window {
         p.setLayout(new GridLayout(5,2));
         p.setVisible(true);
 
-        JScrollPane s = new JScrollPane();
+        String[]data = {"ABC", "DEF", "GHI"};
+        JList l = new JList(data);
+
+        JScrollPane s = new JScrollPane(l);
+        s.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        s.setVisible(true);
 
         p.add(new JLabel("Station ID"));
         p.add(new JTextField());
