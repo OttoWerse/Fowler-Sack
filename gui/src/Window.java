@@ -2,41 +2,59 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Window {
-    public static void main(String[] args) {
-        JFrame f=new JFrame();
+    // Variables to be displayed
+    String CurrentStationID;
+    String CurrentDate;
+    String CurrentTarget;
+    String CurrentActual;
+    String CurrentVariance;
+    String[] CurrentList = {"ABC", "DEF", "GHI"};
 
-        f.setSize(800,400);
-        f.setLayout(new GridLayout(1, 2));
+    // GUI Elements
+    JFrame JFrame_Main;
+    JPanel JPanel_Fields;
+    JList JList_Stations;
+    JScrollPane JScrollPane_Stations;
 
-        JPanel p = new JPanel();
-        p.setLayout(new GridLayout(5,2));
-        p.setVisible(true);
+    void initialise() {
+        this.JFrame_Main = new JFrame();
 
-        String[]data = {"ABC", "DEF", "GHI"};
-        JList l = new JList(data);
+        this.JFrame_Main.setSize(800,400);
+        this.JFrame_Main.setLayout(new GridLayout(1, 2));
 
-        JScrollPane s = new JScrollPane(l);
-        s.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-        s.setVisible(true);
+        this.JPanel_Fields = new JPanel();
+        this.JPanel_Fields.setLayout(new GridLayout(5,2));
+        this.JPanel_Fields.setVisible(true);
 
-        p.add(new JLabel("Station ID"));
-        p.add(new JTextField());
+        this.JList_Stations = new JList(this.CurrentList);
 
-        p.add(new JLabel("Date"));
-        p.add(new JTextField());
+        this.JScrollPane_Stations = new JScrollPane(this.JList_Stations);
+        this.JScrollPane_Stations.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        this.JScrollPane_Stations.setVisible(true);
 
-        p.add(new JLabel("Target"));
-        p.add(new JTextField());
+        this.JPanel_Fields.add(new JLabel("Station ID"));
+        this.JPanel_Fields.add(new JTextField(this.CurrentStationID));
 
-        p.add(new JLabel("Actual"));
-        p.add(new JTextField());
+        this.JPanel_Fields.add(new JLabel("Date"));
+        this.JPanel_Fields.add(new JTextField(this.CurrentDate));
 
-        p.add(new JLabel("Variance"));
-        p.add(new JTextField());
+        this.JPanel_Fields.add(new JLabel("Target"));
+        this.JPanel_Fields.add(new JTextField(this.CurrentTarget));
 
-        f.add(s);
-        f.add(p);
+        this.JPanel_Fields.add(new JLabel("Actual"));
+        this.JPanel_Fields.add(new JTextField(this.CurrentActual));
 
-        f.setVisible(true);
+        this.JPanel_Fields.add(new JLabel("Variance"));
+        this.JPanel_Fields.add(new JTextField(this.CurrentVariance));
+
+        this.JFrame_Main.add(this.JScrollPane_Stations);
+        this.JFrame_Main.add(this.JPanel_Fields);
+
+        this.JFrame_Main.setVisible(true);
+    }
+
+
+    void update() {
+
     }
 }
