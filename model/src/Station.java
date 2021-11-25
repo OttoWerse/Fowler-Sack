@@ -5,7 +5,7 @@ public class Station {
     /*   Attributes   */
     private String stationID;
     private Date date;
-    private int target,actual;
+    private int target, actual;
 
     /*   Constructors   */
     public Station() {
@@ -40,7 +40,7 @@ public class Station {
 
     // Variance is calculated by subtracting actual from target
     public int getVariance() {
-            return target-actual;
+        return target - actual;
     }
 
     /*   Setter   */
@@ -54,7 +54,7 @@ public class Station {
 
     public void setTarget(int target) throws StationInvalidValueException {
         //Throw error if target is less than 0
-        if(target < 0)
+        if (target < 0)
             throw new StationInvalidValueException("Target cant be less then 0");
         else
             this.target = target;
@@ -62,7 +62,7 @@ public class Station {
 
     public void setActual(int actual) throws StationInvalidValueException {
         //Throw error if actual is less than 0
-        if(actual < 0)
+        if (actual < 0)
             throw new StationInvalidValueException("Actual cant be less then 0");
         this.actual = actual;
     }
