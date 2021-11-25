@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Window {
     // Variables to be displayed
@@ -15,6 +17,13 @@ public class Window {
     JPanel JPanel_Fields;
     JList JList_Stations;
     JScrollPane JScrollPane_Stations;
+
+    JTextField JTextField_CurrentStationID, JTextField_CurrentDate, JTextField_CurrentTarget, JTextField_CurrentActual, JTextField_CurrentVariance;
+
+    void updateWindow() {
+        this.CurrentDate = "Test";
+
+    }
 
     void initialise() {
         this.JFrame_Main = new JFrame();
@@ -33,28 +42,41 @@ public class Window {
         this.JScrollPane_Stations.setVisible(true);
 
         this.JPanel_Fields.add(new JLabel("Station ID"));
-        this.JPanel_Fields.add(new JTextField(this.CurrentStationID));
+        this.JTextField_CurrentStationID = new JTextField(this.CurrentStationID);
+        this.JPanel_Fields.add(this.JTextField_CurrentStationID);
 
         this.JPanel_Fields.add(new JLabel("Date"));
-        this.JPanel_Fields.add(new JTextField(this.CurrentDate));
+        this.JTextField_CurrentDate = new JTextField(this.CurrentDate);
+        this.JPanel_Fields.add(this.JTextField_CurrentDate);
 
         this.JPanel_Fields.add(new JLabel("Target"));
-        this.JPanel_Fields.add(new JTextField(this.CurrentTarget));
+        this.JTextField_CurrentTarget = new JTextField(this.CurrentTarget);
+        this.JPanel_Fields.add(this.JTextField_CurrentTarget);
 
         this.JPanel_Fields.add(new JLabel("Actual"));
-        this.JPanel_Fields.add(new JTextField(this.CurrentActual));
+        this.JTextField_CurrentActual = new JTextField(this.CurrentActual);
+        this.JPanel_Fields.add(this.JTextField_CurrentActual);
 
         this.JPanel_Fields.add(new JLabel("Variance"));
-        this.JPanel_Fields.add(new JTextField(this.CurrentVariance));
+        this.JTextField_CurrentVariance = new JTextField(this.CurrentVariance);
+        this.JPanel_Fields.add(this.JTextField_CurrentVariance);
 
         this.JFrame_Main.add(this.JScrollPane_Stations);
         this.JFrame_Main.add(this.JPanel_Fields);
 
+        JButton TestButton = new JButton("Example Button");
+
+        ActionListener TestListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                updateWindow();
+            }
+        };
+
+        TestButton.addActionListener(TestListener);
+
+        this.JFrame_Main.add(TestButton);
+
         this.JFrame_Main.setVisible(true);
-    }
-
-
-    void update() {
-
     }
 }
