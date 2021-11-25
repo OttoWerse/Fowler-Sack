@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.LinkedList;
 
 public class Window {
     // Variables to be displayed
@@ -10,7 +11,7 @@ public class Window {
     String CurrentTarget;
     String CurrentActual;
     String CurrentVariance;
-    String[] CurrentList = {"ABC", "DEF", "GHI"};
+    LinkedList CurrentList = new LinkedList();
 
     // GUI Elements
     JFrame JFrame_Main;
@@ -21,8 +22,11 @@ public class Window {
     JTextField JTextField_CurrentStationID, JTextField_CurrentDate, JTextField_CurrentTarget, JTextField_CurrentActual, JTextField_CurrentVariance;
 
     void updateWindow() {
-        this.CurrentDate = "Test";
-
+        this.JTextField_CurrentStationID.setText(this.CurrentStationID);
+        this.JTextField_CurrentDate.setText(this.CurrentDate);
+        this.JTextField_CurrentTarget.setText(this.CurrentTarget);
+        this.JTextField_CurrentActual.setText(this.CurrentActual);
+        this.JTextField_CurrentVariance.setText(this.CurrentVariance);
     }
 
     void initialise() {
@@ -35,7 +39,7 @@ public class Window {
         this.JPanel_Fields.setLayout(new GridLayout(5,2));
         this.JPanel_Fields.setVisible(true);
 
-        this.JList_Stations = new JList(this.CurrentList);
+        this.JList_Stations = new JList(this.CurrentList.toArray());
 
         this.JScrollPane_Stations = new JScrollPane(this.JList_Stations);
         this.JScrollPane_Stations.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
