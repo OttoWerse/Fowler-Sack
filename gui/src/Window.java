@@ -18,7 +18,6 @@ public class Window {
     JPanel JPanel_Fields;
     JList JList_Stations;
     JScrollPane JScrollPane_Stations;
-
     JTextField JTextField_CurrentStationID, JTextField_CurrentDate, JTextField_CurrentTarget, JTextField_CurrentActual, JTextField_CurrentVariance;
 
     void updateWindow() {
@@ -29,7 +28,7 @@ public class Window {
         this.JTextField_CurrentVariance.setText(this.CurrentVariance);
     }
 
-    void initialise() {
+    void initialiseWindow() {
         this.JFrame_Main = new JFrame();
 
         this.JFrame_Main.setSize(800,400);
@@ -69,16 +68,13 @@ public class Window {
         this.JFrame_Main.add(this.JPanel_Fields);
 
         JButton TestButton = new JButton("Example Button");
-
         ActionListener TestListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 updateWindow();
             }
         };
-
         TestButton.addActionListener(TestListener);
-
         this.JFrame_Main.add(TestButton);
 
         this.JFrame_Main.setVisible(true);
