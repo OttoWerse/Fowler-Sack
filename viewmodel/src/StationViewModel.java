@@ -9,10 +9,12 @@ public class StationViewModel implements PropertyChangeListener {
     public StationViewModel(Window window) {
         this.window = window;
         this.window.addPropertyChangeListener(this);
-        this.window.updateCurrentStationID();
-        System.out.println(this.window.getCurrentStationID());
     }
 
+    @Override
+    public void propertyChange(PropertyChangeEvent evt) {
+        System.out.println("evt");
+    }
 
     public void setStation(Station station) {
         this.station = station;
@@ -32,8 +34,4 @@ public class StationViewModel implements PropertyChangeListener {
         }
     }
 
-    @Override
-    public void propertyChange(PropertyChangeEvent evt) {
-        System.out.println(this.window.getCurrentStationID());
-    }
 }

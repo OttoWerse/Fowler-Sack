@@ -53,16 +53,6 @@ public class Window {
         this.highlight = highlight;
     }
 
-    public String  getCurrentStationID()
-    {
-        return this.CurrentStationID;
-    }
-
-    public void updateCurrentStationID()
-    {
-        changes.firePropertyChange("CurrentStationID", CurrentStationID, CurrentStationID);
-    }
-
     public void addPropertyChangeListener(PropertyChangeListener l) {
         changes.addPropertyChangeListener(l);
     }
@@ -102,6 +92,8 @@ public class Window {
             @Override
             public void actionPerformed(ActionEvent e) {
                 CurrentStationID = JTextField_CurrentStationID.getText();
+                changes.firePropertyChange("CurrentStationID", CurrentStationID, CurrentStationID);
+                System.out.println(CurrentStationID);
             }
         };
         this.JTextField_CurrentStationID.addActionListener(ActionListener_CurrentStationID);
@@ -113,6 +105,8 @@ public class Window {
             @Override
             public void actionPerformed(ActionEvent e) {
                 CurrentDate = JTextField_CurrentDate.getText();
+                changes.firePropertyChange("CurrentDate", CurrentDate, CurrentDate);
+                System.out.println(CurrentDate);
             }
         };
         this.JTextField_CurrentDate.addActionListener(ActionListener_CurrentDate);
@@ -131,6 +125,8 @@ public class Window {
             @Override
             public void actionPerformed(ActionEvent e) {
                 CurrentActual = JTextField_CurrentActual.getText();
+                changes.firePropertyChange("CurrentActual", CurrentActual, CurrentActual);
+                System.out.println(CurrentActual);
             }
         };
         this.JTextField_CurrentActual.addActionListener(ActionListener_CurrentActual);
