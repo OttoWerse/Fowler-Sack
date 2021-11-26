@@ -13,7 +13,7 @@ public class StationViewModel implements PropertyChangeListener {
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        System.out.println("evt");
+        System.out.println(evt.getPropertyName() + ": " + evt.getNewValue());
     }
 
     public void setStation(Station station) {

@@ -91,9 +91,9 @@ public class Window {
         ActionListener ActionListener_CurrentStationID = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                CurrentStationID = JTextField_CurrentStationID.getText();
-                changes.firePropertyChange("CurrentStationID", CurrentStationID, CurrentStationID);
-                System.out.println(CurrentStationID);
+                String NewStationID = JTextField_CurrentStationID.getText();
+                changes.firePropertyChange("StationID", CurrentStationID, NewStationID);
+                CurrentStationID = NewStationID;
             }
         };
         this.JTextField_CurrentStationID.addActionListener(ActionListener_CurrentStationID);
@@ -104,9 +104,9 @@ public class Window {
         ActionListener ActionListener_CurrentDate = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                CurrentDate = JTextField_CurrentDate.getText();
-                changes.firePropertyChange("CurrentDate", CurrentDate, CurrentDate);
-                System.out.println(CurrentDate);
+                String NewDate = JTextField_CurrentDate.getText();
+                changes.firePropertyChange("Date", CurrentDate, NewDate);
+                CurrentDate = NewDate;
             }
         };
         this.JTextField_CurrentDate.addActionListener(ActionListener_CurrentDate);
@@ -124,9 +124,9 @@ public class Window {
         ActionListener ActionListener_CurrentActual = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                CurrentActual = JTextField_CurrentActual.getText();
-                changes.firePropertyChange("CurrentActual", CurrentActual, CurrentActual);
-                System.out.println(CurrentActual);
+                String NewActual = JTextField_CurrentActual.getText();
+                changes.firePropertyChange("Actual", CurrentActual, NewActual);
+                CurrentActual = NewActual;
             }
         };
         this.JTextField_CurrentActual.addActionListener(ActionListener_CurrentActual);
