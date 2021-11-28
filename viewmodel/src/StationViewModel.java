@@ -18,11 +18,11 @@ public class StationViewModel implements PropertyChangeListener {
 
     public void setStation(Station station) {
         this.station = station;
-        this.window.setCurrentStationID(String.valueOf(this.station.getStationID()));
-        this.window.setCurrentDate(String.valueOf(this.station.getDate()));
-        this.window.setCurrentTarget(String.valueOf(this.station.getTarget()));
-        this.window.setCurrentActual(String.valueOf(this.station.getActual()));
-        this.window.setCurrentVariance(String.valueOf(this.station.getVariance()));
+        this.window.setStationID(String.valueOf(this.station.getStationID()));
+        this.window.setDate(String.valueOf(this.station.getDate()));
+        this.window.setTarget(String.valueOf(this.station.getTarget()));
+        this.window.setActual(String.valueOf(this.station.getActual()));
+        this.window.setVariance(String.valueOf(this.station.getVariance()));
         this.updateVariance();
     }
 
