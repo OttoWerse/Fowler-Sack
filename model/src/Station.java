@@ -70,4 +70,9 @@ public class Station {
             throw new StationInvalidValueException("Actual cant be less then 0");
         this.actual = actual;
     }
+
+    @Override
+    public String toString() {
+        return this.stationID;
+    }
 }

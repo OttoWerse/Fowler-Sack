@@ -1,4 +1,6 @@
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -43,6 +45,7 @@ public class Window {
 
     public void setCurrentList(LinkedList currentList) {
         CurrentList = currentList;
+        this.JList_Stations.setListData(this.CurrentList.toArray());
     }
 
     public void setHighlight(Color highlight) {
@@ -58,8 +61,8 @@ public class Window {
     }
 
     public Window(LinkedList list, String stationID, String date, String target, String actual, String variance, Color highlight) {
-        this.setCurrentList(list);
         this.initialise();
+        this.setCurrentList(list);
         this.setStationID(stationID);
         this.setDate(date);
         this.setTarget(target);
@@ -81,6 +84,15 @@ public class Window {
 
         // Create and fill JList for Stations
         this.JList_Stations = new JList(this.CurrentList.toArray());
+        ListSelectionListener Selector_Stations = new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                if (e.getValueIsAdjusting() == false) {
+                    changes.firePropertyChange("StationID", CurrentStationID, CurrentList.toArray()[JList_Stations.getSelectedIndex()]);
+                }
+            }
+        };
+        this.JList_Stations.addListSelectionListener(Selector_Stations);
 
         // Create and format JScrollPane for Stations JList
         this.JScrollPane_Stations = new JScrollPane(this.JList_Stations);
@@ -90,29 +102,13 @@ public class Window {
         // Create form for Station ID
         this.JPanel_Fields.add(new JLabel("Station ID"));
         this.JTextField_CurrentStationID = new JTextField();
-        ActionListener ActionListener_CurrentStationID = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String NewStationID = JTextField_CurrentStationID.getText();
-                changes.firePropertyChange("StationID", CurrentStationID, NewStationID);
-                CurrentStationID = NewStationID;
-            }
-        };
-        this.JTextField_CurrentStationID.addActionListener(ActionListener_CurrentStationID);
+        this.JTextField_CurrentStationID.setEditable(false);
         this.JPanel_Fields.add(this.JTextField_CurrentStationID);
 
         // Create form for Date
         this.JPanel_Fields.add(new JLabel("Date"));
         this.JTextField_CurrentDate = new JTextField();
-        ActionListener ActionListener_CurrentDate = new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String NewDate = JTextField_CurrentDate.getText();
-                changes.firePropertyChange("Date", CurrentDate, NewDate);
-                CurrentDate = NewDate;
-            }
-        };
-        this.JTextField_CurrentDate.addActionListener(ActionListener_CurrentDate);
+        this.JTextField_CurrentDate.setEditable(false);
         this.JPanel_Fields.add(this.JTextField_CurrentDate);
 
         // Create form for Target

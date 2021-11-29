@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="17.0.1" class="java.beans.XMLDecoder">
+    <object class="java.util.LinkedList">
+        <void method="add">
+            <object class="Station">
+                <void property="stationID">
+                    <string>Wert1</string>
+                </void>
+            </object>
+        </void>
+        <void method="add">
+            <object class="Station">
+                <void property="stationID">
+                    <string>Wert2</string>
+                </void>
+            </object>
+        </void>
+        <void method="add">
+            <object class="Station">
+                <void property="stationID">
+                    <string>Wert3</string>
+                </void>
+            </object>
+        </void>
+        <void method="add">
+            <object class="Station">
+                <void property="stationID">
+                    <string>Wert4</string>
+                </void>
+            </object>
+        </void>
+    </object>
+</java>

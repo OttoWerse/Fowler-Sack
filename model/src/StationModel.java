@@ -3,7 +3,7 @@ import java.beans.XMLEncoder;
 import java.io.*;
 import java.util.LinkedList;
 
-public abstract class SafeToXML {
+public abstract class StationModel {
     //Default Path for storing XML-files
     private static String defaultPath = "./xmlstorage/default.xml";
 
