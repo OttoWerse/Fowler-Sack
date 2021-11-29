@@ -11,6 +11,10 @@ public class Station {
     public Station() {
     }
 
+    public Station(String stationID ) {
+        this.stationID = stationID;
+    }
+
     public Station(String stationID, Date date, int target, int actual) {
         this.stationID = stationID;
         this.date = date;
