@@ -3,13 +3,14 @@ import java.beans.XMLEncoder;
 import java.io.*;
 import java.util.LinkedList;
 
-public class SafeToXML {
-
+public abstract class SafeToXML {
+    //Default Path for storing XML-files
+    private static String defaultPath = "./xmlstorage/default.xml";
 
     //Test MAIN
     public static void main(String[] args) {
         //Test path
-        String path = "Test.xml";
+        String path = "./xmlstorage/Test.xml";
 
         //create Test Stations
         Station st1 = new Station("Wert1");
@@ -62,6 +63,13 @@ public class SafeToXML {
         e.close();
     }
 
+    public static void safeStationlist(LinkedList<Station> stationlist){
+        safeStationlist(defaultPath, stationlist);
+    }
+
+
+
+    //Method to Load StationList from a XML-File
     public static LinkedList<Station> loadStationlist(String path){
 
         //Create Decoder
@@ -87,6 +95,11 @@ public class SafeToXML {
 
         //give back the Station
         return loadedStationlist;
+    }
+
+    //Same Method as above but uses a default path
+    public static LinkedList<Station> loadStationlist(){
+        return loadStationlist(defaultPath);
     }
 
 
