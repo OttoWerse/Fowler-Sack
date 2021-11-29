@@ -33,5 +33,4 @@ public class StationViewModel implements PropertyChangeListener {
             this.window.setHighlight(new Color(0.0f, 1.0f, 0.0f));
         }
     }
-
 }

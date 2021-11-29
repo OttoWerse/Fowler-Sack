@@ -10,16 +10,16 @@ public class Window {
     private PropertyChangeSupport changes = new PropertyChangeSupport(this);
 
     // Variables to be displayed
-    String CurrentStationID, CurrentDate, CurrentActual;
-    LinkedList CurrentList = new LinkedList();
-    Color highlight;
+    private String CurrentStationID, CurrentDate, CurrentActual;
+    private LinkedList CurrentList = new LinkedList();
+    private Color highlight;
 
     // GUI Elements
-    JFrame JFrame_Main;
-    JPanel JPanel_Fields;
-    JList JList_Stations;
-    JScrollPane JScrollPane_Stations;
-    JTextField JTextField_CurrentStationID, JTextField_CurrentDate, JTextField_CurrentTarget, JTextField_CurrentActual, JTextField_CurrentVariance;
+    private JFrame JFrame_Main;
+    private JPanel JPanel_Fields;
+    private JList JList_Stations;
+    private JScrollPane JScrollPane_Stations;
+    private JTextField JTextField_CurrentStationID, JTextField_CurrentDate, JTextField_CurrentTarget, JTextField_CurrentActual, JTextField_CurrentVariance;
 
     public void setStationID(String currentStationID) {
         this.JTextField_CurrentStationID.setText(currentStationID);
