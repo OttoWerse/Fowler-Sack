@@ -17,14 +17,26 @@ public class StationViewModel implements PropertyChangeListener {
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        System.out.println(evt.getPropertyName() + ": " + evt.getNewValue());
         if (evt.getPropertyName() == "StationID") {
             String value = evt.getNewValue().toString();
             Station currentStation = new Station(value);
             int index = this.stationList.indexOf(currentStation);
-            System.out.println(index);
             Station newStation = (Station) this.stationList.get(index);
             this.setStation(newStation);
+        } else if (evt.getPropertyName() == "Actual") {
+            int value = Integer.valueOf(evt.getNewValue().toString());
+            try {
+                int index = this.stationList.indexOf(this.station);
+                this.station.setActual(value);
+                Station newStation = (Station) this.stationList.get(index);
+                newStation = this.station;
+                this.updateVariance();
+
+            } catch (StationInvalidValueException e) {
+                // TODO: Error Message!
+                e.printStackTrace();
+            }
+            StationModel.safeStationlist(this.stationList);
         }
     }
 
@@ -34,15 +46,19 @@ public class StationViewModel implements PropertyChangeListener {
         this.window.setDate(String.valueOf(this.station.getDate()));
         this.window.setTarget(String.valueOf(this.station.getTarget()));
         this.window.setActual(String.valueOf(this.station.getActual()));
-        this.window.setVariance(String.valueOf(this.station.getVariance()));
         this.updateVariance();
     }
 
     public void updateVariance() {
+        this.window.setVariance(String.valueOf(this.station.getVariance()));
         if (this.station.getTarget() * -0.10 >= this.station.getVariance()) {
+            // System.out.println("RED");
             this.window.setHighlight(new Color(1.0f, 0.0f, 0.0f));
-        } else if (this.station.getTarget() * 0.05 >= this.station.getVariance()) {
+        } else if (this.station.getTarget() * 0.05 <= this.station.getVariance()) {
+            // System.out.println("GREEN");
             this.window.setHighlight(new Color(0.0f, 1.0f, 0.0f));
+        } else {
+            this.window.setHighlight(new Color(0.0f, 0.0f, 0.0f));
         }
     }
 }

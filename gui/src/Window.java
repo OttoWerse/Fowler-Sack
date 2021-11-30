@@ -50,6 +50,7 @@ public class Window {
 
     public void setHighlight(Color highlight) {
         this.highlight = highlight;
+        this.JTextField_CurrentVariance.setForeground(this.highlight);
     }
 
     public void addPropertyChangeListener(PropertyChangeListener l) {
@@ -58,6 +59,10 @@ public class Window {
 
     public void removePropertyChangeListener(PropertyChangeListener l) {
         changes.removePropertyChangeListener(l);
+    }
+
+    public Window() {
+        this.initialise();
     }
 
     public Window(LinkedList list, String stationID, String date, String target, String actual, String variance, Color highlight) {

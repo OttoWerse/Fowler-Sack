@@ -1,6 +1,8 @@
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
 import java.io.*;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.LinkedList;
 
 public abstract class StationModel {
@@ -13,10 +15,10 @@ public abstract class StationModel {
         String path = "./xmlstorage/Test.xml";
 
         //create Test Stations
-        Station st1 = new Station("Wert1");
-        Station st2 = new Station("Wert2");
-        Station st3 = new Station("Wert3");
-        Station st4 = new Station("Wert4");
+        Station st1 = new Station("Wert1", new Date(91, Calendar.JANUARY, 1), 12, 14);
+        Station st2 = new Station("Wert2", new Date(107, Calendar.DECEMBER, 13), 11, 10);
+        Station st3 = new Station("Wert3", new Date(120, Calendar.MARCH, 11), 230, 20);
+        Station st4 = new Station("Wert4", new Date(104, Calendar.AUGUST, 27), 77, 90);
 
         //create Test list and add stations
         LinkedList<Station> list = new LinkedList<Station>();

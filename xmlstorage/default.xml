@@ -1,33 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <java version="17.0.1" class="java.beans.XMLDecoder">
-    <object class="java.util.LinkedList">
-        <void method="add">
-            <object class="Station">
-                <void property="stationID">
-                    <string>Wert1</string>
-                </void>
-            </object>
-        </void>
-        <void method="add">
-            <object class="Station">
-                <void property="stationID">
-                    <string>Wert2</string>
-                </void>
-            </object>
-        </void>
-        <void method="add">
-            <object class="Station">
-                <void property="stationID">
-                    <string>Wert3</string>
-                </void>
-            </object>
-        </void>
-        <void method="add">
-            <object class="Station">
-                <void property="stationID">
-                    <string>Wert4</string>
-                </void>
-            </object>
-        </void>
-    </object>
+ <object class="java.util.LinkedList">
+  <void method="add">
+   <object class="Station">
+    <void property="actual">
+     <int>19</int>
+    </void>
+    <void property="date">
+     <object class="java.util.Date">
+      <long>662684400000</long>
+     </object>
+    </void>
+    <void property="stationID">
+     <string>Wert1</string>
+    </void>
+    <void property="target">
+     <int>12</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Station">
+    <void property="actual">
+     <int>11</int>
+    </void>
+    <void property="date">
+     <object class="java.util.Date">
+      <long>1197500400000</long>
+     </object>
+    </void>
+    <void property="stationID">
+     <string>Wert2</string>
+    </void>
+    <void property="target">
+     <int>11</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Station">
+    <void property="actual">
+     <int>220</int>
+    </void>
+    <void property="date">
+     <object class="java.util.Date">
+      <long>1583881200000</long>
+     </object>
+    </void>
+    <void property="stationID">
+     <string>Wert3</string>
+    </void>
+    <void property="target">
+     <int>230</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Station">
+    <void property="actual">
+     <int>7</int>
+    </void>
+    <void property="date">
+     <object class="java.util.Date">
+      <long>1093557600000</long>
+     </object>
+    </void>
+    <void property="stationID">
+     <string>Wert4</string>
+    </void>
+    <void property="target">
+     <int>77</int>
+    </void>
+   </object>
+  </void>
+ </object>
 </java>
