@@ -83,7 +83,7 @@ public class Station {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Station station = (Station) o;
-        return target == station.target && actual == station.actual && stationID.equals(station.stationID) && Objects.equals(date, station.date);
+        return  stationID.equals(station.stationID) ;
     }
 
     @Override
