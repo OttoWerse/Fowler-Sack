@@ -10,7 +10,7 @@ import java.util.LinkedList;
 public class StationModel {
 
     //Attributes
-    private PropertyChangeSupport savechanges = new PropertyChangeSupport(this);    //Property change listener to udpate gui
+    private PropertyChangeSupport changes = new PropertyChangeSupport(this);    //Property change listener to udpate gui
     private String defaultPath = "./xmlstorage/default.xml";    //Default path for the XML-File
 
 
@@ -54,7 +54,7 @@ public class StationModel {
 
     //Method to Store Station in XML FILE
     public void safeStationlist(String path,LinkedList<Station> newstationlist){
-
+        LinkedList<Station> oldList = loadStationlist(path);
         //Create Encoder
         XMLEncoder e = null;
 
@@ -75,10 +75,13 @@ public class StationModel {
         
         //close the encoder
         e.close();
-    
-        //fire the propertyChange
-        savechanges.firePropertyChange("StationList", loadStationlist(path), newstationlist);
 
+        //fire the propertyChange
+        LinkedList<Station> newList = loadStationlist(path);
+        System.out.println(oldList);
+        System.out.println(newList);
+        changes.firePropertyChange("StationList", oldList, newList);
+        System.out.println("Saved");
     }
 
     public void safeStationlist(LinkedList<Station> stationlist){
@@ -133,11 +136,11 @@ public class StationModel {
 
     //Adding and removing a Property change listener
     public void addPropertyChangeListener(PropertyChangeListener l) {
-        savechanges.addPropertyChangeListener(l);
+        changes.addPropertyChangeListener(l);
     }
 
     public void removePropertyChangeListener(PropertyChangeListener l) {
-        savechanges.removePropertyChangeListener(l);
+        changes.removePropertyChangeListener(l);
     }
 
 }

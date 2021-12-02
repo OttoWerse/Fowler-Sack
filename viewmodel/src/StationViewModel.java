@@ -7,16 +7,19 @@ public class StationViewModel implements PropertyChangeListener {
     Window window;
     LinkedList stationList;
     Station station;
+    StationModel stationModel;
 
-    public StationViewModel(Window window) {
+    public StationViewModel(Window window, StationModel stationModel) {
         this.window = window;
         this.window.addPropertyChangeListener(this);
-        this.stationList = StationModel.loadStationlist();
-        this.window.setCurrentList(this.stationList);
+        this.stationModel = stationModel;
+        this.stationModel.addPropertyChangeListener(this);
+        this.loadStationList();
     }
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
+        System.out.println(evt);
         if (evt.getPropertyName() == "StationID") {
             String value = evt.getNewValue().toString();
             Station currentStation = new Station(value);
@@ -36,8 +39,16 @@ public class StationViewModel implements PropertyChangeListener {
                 // TODO: Error Message!
                 e.printStackTrace();
             }
-            StationModel.safeStationlist(this.stationList);
+            this.stationModel.safeStationlist(this.stationList);
+            // TODO: this.loadStationList();
+        } else if (evt.getPropertyName() == "StationList") {
+            System.out.println(evt.getNewValue());
         }
+    }
+
+    private void loadStationList() {
+        this.stationList = this.stationModel.loadStationlist();
+        this.window.setCurrentList(this.stationList);
     }
 
     public void setStation(Station station) {

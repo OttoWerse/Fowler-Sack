@@ -44,7 +44,7 @@ public class Window {
     }
 
     public void setCurrentList(LinkedList currentList) {
-        CurrentList = currentList;
+        this.CurrentList = currentList;
         this.JList_Stations.setListData(this.CurrentList.toArray());
     }
 
