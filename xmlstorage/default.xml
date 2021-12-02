@@ -4,7 +4,7 @@
   <void method="add">
    <object class="Station">
     <void property="actual">
-     <int>7</int>
+     <int>70</int>
     </void>
     <void property="date">
      <object class="java.util.Date">
@@ -22,7 +22,7 @@
   <void method="add">
    <object class="Station">
     <void property="actual">
-     <int>2</int>
+     <int>202</int>
     </void>
     <void property="date">
      <object class="java.util.Date">
@@ -40,7 +40,7 @@
   <void method="add">
    <object class="Station">
     <void property="actual">
-     <int>3</int>
+     <int>300</int>
     </void>
     <void property="date">
      <object class="java.util.Date">

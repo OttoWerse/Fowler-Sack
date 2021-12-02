@@ -49,8 +49,10 @@ public class Window {
 
     public void setCurrentList(LinkedList currentList) {
         this.CurrentList = currentList;
+        int index = this.JList_Stations.getSelectedIndex();
         this.JList_Stations.setListData(this.CurrentList.toArray());
-        JList_Stations.updateUI();
+        this.JList_Stations.setSelectedIndex(index);
+        this.updateUI();
     }
 
     public void setHighlight(Color highlight) {
@@ -68,6 +70,7 @@ public class Window {
 
     public Window() {
         this.initialise();
+        this.updateUI();
     }
 
     public Window(LinkedList list, String stationID, String date, String target, String actual, String variance, Color highlight) {
@@ -79,6 +82,15 @@ public class Window {
         this.setActual(actual);
         this.setVariance(variance);
         this.setHighlight(highlight);
+    }
+
+    private void updateUI() {
+        this.JTextField_CurrentActual.updateUI();
+        this.JTextField_CurrentDate.updateUI();
+        this.JTextField_CurrentStationID.updateUI();
+        this.JTextField_CurrentTarget.updateUI();
+        this.JTextField_CurrentVariance.updateUI();
+        this.JList_Stations.updateUI();
     }
 
     private void initialise() {
@@ -98,7 +110,10 @@ public class Window {
             @Override
             public void valueChanged(ListSelectionEvent e) {
                 if (e.getValueIsAdjusting() == false) {
-                    changes.firePropertyChange("StationID", CurrentStationID, CurrentList.toArray()[JList_Stations.getSelectedIndex()]);
+                    int index = JList_Stations.getSelectedIndex();
+                    if (index != -1) {
+                        changes.firePropertyChange("StationID", CurrentStationID, CurrentList.toArray()[index]);
+                    }
                 }
             }
         };

@@ -21,7 +21,7 @@ public class StationViewModel implements PropertyChangeListener {
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
-        System.out.println(evt);
+        // System.out.println(evt);
         if (evt.getPropertyName() == "StationID") {
             String value = evt.getNewValue().toString();
             Station currentStation = new Station(value);
@@ -42,7 +42,6 @@ public class StationViewModel implements PropertyChangeListener {
             this.stationModel.safeStationlist(this.stationList);
             this.loadStationList();
         } else if (evt.getPropertyName() == "StationList") {
-            System.out.println(evt.getNewValue());
             this.loadStationList();
         }
     }
