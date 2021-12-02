@@ -1,3 +1,5 @@
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
 import java.io.*;
@@ -5,12 +7,26 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedList;
 
-public abstract class StationModel {
-    //Default Path for storing XML-files
-    private static String defaultPath = "./xmlstorage/default.xml";
+public class StationModel {
+
+    //Attributes
+    private LinkedList<Station> currentStationList;     //the current stationlist to update the property change listener
+    private PropertyChangeSupport savechanges = new PropertyChangeSupport(this);    //Property change listener to udpate gui
+    private String defaultPath = "./xmlstorage/default.xml";    //Default path for the XML-File
+
+
+    //Constructors
+    public StationModel(LinkedList<Station> currentStationList) {
+        this.currentStationList = currentStationList;
+    }
+
+    public StationModel(LinkedList<Station> currentStationList, String defaultPath) {
+        this.currentStationList = currentStationList;
+        this.defaultPath = defaultPath;
+    }
 
     //Test MAIN
-    public static void main(String[] args) {
+    public void main(String[] args) {
         //Test path
         String path = "./xmlstorage/Test.xml";
 
@@ -41,7 +57,7 @@ public abstract class StationModel {
     }
 
     //Method to Store Station in XML FILE
-    public static void safeStationlist(String path,LinkedList<Station> stationlist){
+    public void safeStationlist(String path,LinkedList<Station> newstationlist){
 
         //Create Encoder
         XMLEncoder e = null;
@@ -59,20 +75,25 @@ public abstract class StationModel {
         }
 
         //write the object in the file
-        e.writeObject(stationlist);
-
+        e.writeObject(newstationlist);
+        
         //close the encoder
         e.close();
+    
+        //fire the propertyChange
+        savechanges.firePropertyChange("StationList", currentStationList, newstationlist);
+        this.setCurrentStationList(newstationlist);
+
     }
 
-    public static void safeStationlist(LinkedList<Station> stationlist){
+    public void safeStationlist(LinkedList<Station> stationlist){
         safeStationlist(defaultPath, stationlist);
     }
 
 
 
     //Method to Load StationList from a XML-File
-    public static LinkedList<Station> loadStationlist(String path){
+    public LinkedList<Station> loadStationlist(String path){
 
         //Create Decoder
         XMLDecoder d = null;
@@ -100,9 +121,35 @@ public abstract class StationModel {
     }
 
     //Same Method as above but uses a default path
-    public static LinkedList<Station> loadStationlist(){
+    public LinkedList<Station> loadStationlist(){
         return loadStationlist(defaultPath);
     }
 
+
+    //Getters and Setters
+    public String getDefaultPath() {
+        return defaultPath;
+    }
+
+    public void setDefaultPath(String defaultPath) {
+        this.defaultPath = defaultPath;
+    }
+
+    public LinkedList<Station> getCurrentStationList() {
+        return currentStationList;
+    }
+
+    public void setCurrentStationList(LinkedList<Station> currentStationList) {
+        this.currentStationList = currentStationList;
+    }
+
+    //Adding and removing a Property change listener
+    public void addPropertyChangeListener(PropertyChangeListener l) {
+        savechanges.addPropertyChangeListener(l);
+    }
+
+    public void removePropertyChangeListener(PropertyChangeListener l) {
+        savechanges.removePropertyChangeListener(l);
+    }
 
 }
