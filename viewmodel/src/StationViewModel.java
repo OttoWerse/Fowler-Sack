@@ -2,10 +2,12 @@ import java.awt.*;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class StationViewModel implements PropertyChangeListener {
     Window window;
-    LinkedList stationList;
+    LinkedList<Station> stationList;
     Station station;
     StationModel stationModel;
 
@@ -23,16 +25,14 @@ public class StationViewModel implements PropertyChangeListener {
         if (evt.getPropertyName() == "StationID") {
             String value = evt.getNewValue().toString();
             Station currentStation = new Station(value);
-            int index = this.stationList.indexOf(currentStation);
-            Station newStation = (Station) this.stationList.get(index);
+            List<Station> shortlist = this.stationList.stream().filter(s -> currentStation.getStationID().equals(s.getStationID())).collect(Collectors.toList());
+            int index = this.stationList.indexOf(shortlist.get(0));
+            Station newStation = this.stationList.get(index);
             this.setStation(newStation);
         } else if (evt.getPropertyName() == "Actual") {
             int value = Integer.valueOf(evt.getNewValue().toString());
             try {
-                int index = this.stationList.indexOf(this.station);
                 this.station.setActual(value);
-                Station newStation = (Station) this.stationList.get(index);
-                newStation = this.station;
                 this.updateVariance();
 
             } catch (StationInvalidValueException e) {
@@ -40,9 +40,10 @@ public class StationViewModel implements PropertyChangeListener {
                 e.printStackTrace();
             }
             this.stationModel.safeStationlist(this.stationList);
-            // TODO: this.loadStationList();
+            this.loadStationList();
         } else if (evt.getPropertyName() == "StationList") {
             System.out.println(evt.getNewValue());
+            this.loadStationList();
         }
     }
 

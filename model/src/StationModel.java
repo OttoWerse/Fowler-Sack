@@ -78,10 +78,7 @@ public class StationModel {
 
         //fire the propertyChange
         LinkedList<Station> newList = loadStationlist(path);
-        System.out.println(oldList);
-        System.out.println(newList);
         changes.firePropertyChange("StationList", oldList, newList);
-        System.out.println("Saved");
     }
 
     public void safeStationlist(LinkedList<Station> stationlist){

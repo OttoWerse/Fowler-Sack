@@ -9,6 +9,10 @@ import java.beans.PropertyChangeSupport;
 import java.util.LinkedList;
 
 public class Window {
+    public static void main(String[] args) {
+        Window w = new Window();
+    }
+
     private PropertyChangeSupport changes = new PropertyChangeSupport(this);
 
     // Variables to be displayed
@@ -46,6 +50,7 @@ public class Window {
     public void setCurrentList(LinkedList currentList) {
         this.CurrentList = currentList;
         this.JList_Stations.setListData(this.CurrentList.toArray());
+        JList_Stations.updateUI();
     }
 
     public void setHighlight(Color highlight) {

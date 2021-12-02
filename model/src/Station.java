@@ -12,7 +12,7 @@ public class Station {
     public Station() {
     }
 
-    public Station(String stationID ) {
+    public Station(String stationID) {
         this.stationID = stationID;
     }
 
@@ -83,13 +83,11 @@ public class Station {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Station station = (Station) o;
-        return  stationID.equals(station.stationID) ;
+        return target == station.target && actual == station.actual && stationID.equals(station.stationID) && Objects.equals(date, station.date);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(stationID, date, target, actual);
     }
-
-
 }
