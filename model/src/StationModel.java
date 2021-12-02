@@ -10,18 +10,14 @@ import java.util.LinkedList;
 public class StationModel {
 
     //Attributes
-    private LinkedList<Station> currentStationList;     //the current stationlist to update the property change listener
     private PropertyChangeSupport savechanges = new PropertyChangeSupport(this);    //Property change listener to udpate gui
     private String defaultPath = "./xmlstorage/default.xml";    //Default path for the XML-File
 
 
     //Constructors
-    public StationModel(LinkedList<Station> currentStationList) {
-        this.currentStationList = currentStationList;
-    }
+    public StationModel() {}
 
-    public StationModel(LinkedList<Station> currentStationList, String defaultPath) {
-        this.currentStationList = currentStationList;
+    public StationModel(String defaultPath) {
         this.defaultPath = defaultPath;
     }
 
@@ -81,8 +77,7 @@ public class StationModel {
         e.close();
     
         //fire the propertyChange
-        savechanges.firePropertyChange("StationList", currentStationList, newstationlist);
-        this.setCurrentStationList(newstationlist);
+        savechanges.firePropertyChange("StationList", loadStationlist(path), newstationlist);
 
     }
 
@@ -135,13 +130,6 @@ public class StationModel {
         this.defaultPath = defaultPath;
     }
 
-    public LinkedList<Station> getCurrentStationList() {
-        return currentStationList;
-    }
-
-    public void setCurrentStationList(LinkedList<Station> currentStationList) {
-        this.currentStationList = currentStationList;
-    }
 
     //Adding and removing a Property change listener
     public void addPropertyChangeListener(PropertyChangeListener l) {
