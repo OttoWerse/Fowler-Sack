@@ -56,29 +56,26 @@ public class StationViewModel implements PropertyChangeListener {
         //Update when Actual changes
         } else if (evt.getPropertyName() == "Actual") {
 
-            //check if it is a number and only then update
-            if(isNumeric(evt.getNewValue().toString())) {
+            //Try to update the value and catch if there is an error
+            try {
                 int newActualvalue = Integer.parseInt(evt.getNewValue().toString());
+                this.station.setActual(newActualvalue);
+                this.updateVariance();
 
-                //Try to update the value and catch if there is an error
-                try {
-                    this.station.setActual(newActualvalue);
-                    this.updateVariance();
-
-                } catch (StationInvalidValueException e) {
-                    // TODO: Error Message!
-                    e.printStackTrace();
-                }
-                //update the StationList XML-File
-                this.stationModel.safeStationlist(this.stationList);
-
-                //reload the StationList from the XML-File
-                this.loadStationList();
-
-            //Print error for invalid value
-            }else{
+            } catch (NumberFormatException e) {
                 // TODO: Error Message!
+                e.printStackTrace();
+
+            }catch (StationInvalidValueException e) {
+                // TODO: Error Message!
+                e.printStackTrace();
             }
+            //update the StationList XML-File
+            this.stationModel.safeStationlist(this.stationList);
+
+            //reload the StationList from the XML-File
+            this.loadStationList();
+
 
         //Load the StationList
         } else if (evt.getPropertyName() == "StationList") {
@@ -86,23 +83,7 @@ public class StationViewModel implements PropertyChangeListener {
         }
     }
 
-    //Method to check if String is int
-    public static boolean isNumeric(String string) {
-        int intValue;
 
-        //Check for the simplest errors
-        if(string == null || string.equals("")) {
-            return false;
-        }
-
-        //Check if it is a number by trying to parse it
-        try {
-            intValue = Integer.parseInt(string);
-            return true;
-        } catch (NumberFormatException e) {
-        }
-        return false;
-    }
 
     private void loadStationList() {
         this.stationList = this.stationModel.loadStationlist();

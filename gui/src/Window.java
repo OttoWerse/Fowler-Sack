@@ -138,8 +138,12 @@ public class Window {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String NewActual = JTextField_CurrentActual.getText();
-                changes.firePropertyChange("Actual", CurrentActual, NewActual);
-                CurrentActual = NewActual;
+                if(isNumericInput(NewActual)) {
+                    changes.firePropertyChange("Actual", CurrentActual, NewActual);
+                    CurrentActual = NewActual;
+                }else{
+                    //TODO GUI ERROR If not number
+                }
             }
         };
         this.JTextField_CurrentActual.addActionListener(ActionListener_CurrentActual);
@@ -156,5 +160,23 @@ public class Window {
         this.JFrame_Main.add(this.JPanel_Fields);
 
         this.JFrame_Main.setVisible(true);
+    }
+
+    //Check if it is an Numeric input
+    public static boolean isNumericInput(String string) {
+        int intValue;
+
+        //Check for the simplest errors
+        if(string == null || string.equals("")) {
+            return false;
+        }
+
+        //Check if it is a number by trying to parse it
+        try {
+            intValue = Integer.parseInt(string);
+            return true;
+        } catch (NumberFormatException e) {
+        }
+        return false;
     }
 }
