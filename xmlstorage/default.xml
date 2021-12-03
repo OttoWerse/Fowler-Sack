@@ -22,7 +22,7 @@
   <void method="add">
    <object class="Station">
     <void property="actual">
-     <int>202</int>
+     <int>128</int>
     </void>
     <void property="date">
      <object class="java.util.Date">
@@ -70,6 +70,24 @@
     </void>
     <void property="target">
      <int>77</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Station">
+    <void property="actual">
+     <int>30</int>
+    </void>
+    <void property="date">
+     <object class="java.util.Date">
+      <long>1638544062900</long>
+     </object>
+    </void>
+    <void property="stationID">
+     <string>NEW!</string>
+    </void>
+    <void property="target">
+     <int>12</int>
     </void>
    </object>
   </void>

@@ -73,17 +73,6 @@ public class Window {
         this.updateUI();
     }
 
-    public Window(LinkedList list, String stationID, String date, String target, String actual, String variance, Color highlight) {
-        this.initialise();
-        this.setCurrentList(list);
-        this.setStationID(stationID);
-        this.setDate(date);
-        this.setTarget(target);
-        this.setActual(actual);
-        this.setVariance(variance);
-        this.setHighlight(highlight);
-    }
-
     private void updateUI() {
         this.JTextField_CurrentActual.updateUI();
         this.JTextField_CurrentDate.updateUI();

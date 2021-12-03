@@ -1,6 +1,7 @@
 import java.awt.*;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -35,13 +36,13 @@ public class StationViewModel implements PropertyChangeListener {
             //Get the index from the first Element pulled from the Stationlist
             int index = this.stationList.indexOf(shortlist.get(0));
 
-            //Get the new Staion
+            //Get the new Station
             Station newStation = this.stationList.get(index);
 
             //update the current Station with the selected Station
             this.setStation(newStation);
 
-        //
+            //
         } else if (evt.getPropertyName() == "Actual") {
             int value = Integer.valueOf(evt.getNewValue().toString());
             try {
@@ -71,6 +72,13 @@ public class StationViewModel implements PropertyChangeListener {
         this.window.setTarget(String.valueOf(this.station.getTarget()));
         this.window.setActual(String.valueOf(this.station.getActual()));
         this.updateVariance();
+    }
+
+    public void addStation() {
+        Station newStation = new Station("NEW!", new Date(), 12, 3);
+        this.stationList.add(newStation);
+        this.stationModel.safeStationlist(this.stationList);
+        this.loadStationList();
     }
 
     public void updateVariance() {
