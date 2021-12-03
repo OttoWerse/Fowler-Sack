@@ -61,6 +61,8 @@ public class Station {
         //Throw error if target is less than 0
         if (target < 0)
             throw new StationInvalidValueException("Target cant be less then 0");
+        if (actual > 2147483646)
+            throw new StationInvalidValueException("Actual cant be more then 2147483646");
         else
             this.target = target;
     }
