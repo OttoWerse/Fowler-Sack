@@ -22,13 +22,26 @@ public class StationViewModel implements PropertyChangeListener {
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
         // System.out.println(evt);
+
+        //Update the complete Station
         if (evt.getPropertyName() == "StationID") {
-            String value = evt.getNewValue().toString();
-            Station currentStation = new Station(value);
-            List<Station> shortlist = this.stationList.stream().filter(s -> currentStation.getStationID().equals(s.getStationID())).collect(Collectors.toList());
+
+            //Gets the selected Station ID
+            String selectedStationID = evt.getNewValue().toString();
+
+            //Get every Element with the StationID
+            List<Station> shortlist = this.stationList.stream().filter(s -> selectedStationID.equals(s.getStationID())).collect(Collectors.toList());
+
+            //Get the index from the first Element pulled from the Stationlist
             int index = this.stationList.indexOf(shortlist.get(0));
+
+            //Get the new Staion
             Station newStation = this.stationList.get(index);
+
+            //update the current Station with the selected Station
             this.setStation(newStation);
+
+        //
         } else if (evt.getPropertyName() == "Actual") {
             int value = Integer.valueOf(evt.getNewValue().toString());
             try {
