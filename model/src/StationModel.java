@@ -9,17 +9,41 @@ import java.util.LinkedList;
 
 public class StationModel {
 
+    //Singleton Instance
+    private static StationModel single_instance = null;
+
     //Attributes
     private PropertyChangeSupport changes = new PropertyChangeSupport(this);    //Property change listener to udpate gui
     private String defaultPath = "./xmlstorage/default.xml";    //Default path for the XML-File
 
 
     //Constructors
-    public StationModel() {}
+    private StationModel() {}
 
-    public StationModel(String defaultPath) {
+    private StationModel(String defaultPath) {
         this.defaultPath = defaultPath;
     }
+
+
+    //Get the Singleton Instance
+    public static StationModel getInstance(String path){//with path
+
+        //creates new Instance with the path if not exists
+        if (single_instance == null)
+            single_instance = new StationModel(path);
+
+        return single_instance;
+    }
+
+    public static StationModel getInstance(){//without path
+
+        //creates new Instance if not exists
+        if (single_instance == null)
+            single_instance = new StationModel();
+
+        return single_instance;
+    }
+
 
     //Test MAIN
     public void main(String[] args) {
