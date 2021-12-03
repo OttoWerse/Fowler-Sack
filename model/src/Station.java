@@ -45,7 +45,7 @@ public class Station {
 
     // Variance is calculated by subtracting actual from target
     public int getVariance() {
-        return target - actual;
+        return  actual - target;
     }
 
     /*   Setter   */
