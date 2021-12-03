@@ -69,6 +69,8 @@ public class Station {
         //Throw error if actual is less than 0
         if (actual < 0)
             throw new StationInvalidValueException("Actual cant be less then 0");
+        if (actual > 2147483646)
+            throw new StationInvalidValueException("Actual cant be more then 2147483646");
         this.actual = actual;
     }
 
