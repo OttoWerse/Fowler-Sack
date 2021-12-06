@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Fowler-Sack.iml" filepath="$PROJECT_DIR$/.idea/Fowler-Sack.iml" />
-      <module fileurl="file://$PROJECT_DIR$/datastorage/datastorage.iml" filepath="$PROJECT_DIR$/datastorage/datastorage.iml" />
       <module fileurl="file://$PROJECT_DIR$/gui/gui.iml" filepath="$PROJECT_DIR$/gui/gui.iml" />
       <module fileurl="file://$PROJECT_DIR$/main/main.iml" filepath="$PROJECT_DIR$/main/main.iml" />
       <module fileurl="file://$PROJECT_DIR$/model/model.iml" filepath="$PROJECT_DIR$/model/model.iml" />

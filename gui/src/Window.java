@@ -8,7 +8,7 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.LinkedList;
 
-public class Window {
+public class Window implements StationViewInterface {
     public static void main(String[] args) {
         Window w = new Window();
     }
@@ -138,10 +138,10 @@ public class Window {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String NewActual = JTextField_CurrentActual.getText();
-                if(isNumericInput(NewActual)) {
+                if (isNumericInput(NewActual)) {
                     changes.firePropertyChange("Actual", CurrentActual, NewActual);
                     CurrentActual = NewActual;
-                }else{
+                } else {
                     //TODO GUI ERROR If not number
                 }
             }
@@ -162,12 +162,12 @@ public class Window {
         this.JFrame_Main.setVisible(true);
     }
 
-    //Check if it is an Numeric input
+    //Check if it is a numeric input
     public static boolean isNumericInput(String string) {
         int intValue;
 
         //Check for the simplest errors
-        if(string == null || string.equals("")) {
+        if (string == null || string.equals("")) {
             return false;
         }
 
