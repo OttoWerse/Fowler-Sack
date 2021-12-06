@@ -22,7 +22,7 @@
   <void method="add">
    <object class="Station">
     <void property="actual">
-     <int>128</int>
+     <int>1</int>
     </void>
     <void property="date">
      <object class="java.util.Date">
@@ -40,7 +40,7 @@
   <void method="add">
    <object class="Station">
     <void property="actual">
-     <int>12</int>
+     <int>127</int>
     </void>
     <void property="date">
      <object class="java.util.Date">
@@ -58,7 +58,7 @@
   <void method="add">
    <object class="Station">
     <void property="actual">
-     <int>123</int>
+     <int>666</int>
     </void>
     <void property="date">
      <object class="java.util.Date">
@@ -76,11 +76,11 @@
   <void method="add">
    <object class="Station">
     <void property="actual">
-     <int>30</int>
+     <int>1337</int>
     </void>
     <void property="date">
      <object class="java.util.Date">
-      <long>1638544062900</long>
+      <long>1638815732781</long>
      </object>
     </void>
     <void property="stationID">
@@ -98,61 +98,7 @@
     </void>
     <void property="date">
      <object class="java.util.Date">
-      <long>1638545388256</long>
-     </object>
-    </void>
-    <void property="stationID">
-     <string>NEW!</string>
-    </void>
-    <void property="target">
-     <int>12</int>
-    </void>
-   </object>
-  </void>
-  <void method="add">
-   <object class="Station">
-    <void property="actual">
-     <int>3</int>
-    </void>
-    <void property="date">
-     <object class="java.util.Date">
-      <long>1638545491772</long>
-     </object>
-    </void>
-    <void property="stationID">
-     <string>NEW!</string>
-    </void>
-    <void property="target">
-     <int>12</int>
-    </void>
-   </object>
-  </void>
-  <void method="add">
-   <object class="Station">
-    <void property="actual">
-     <int>3</int>
-    </void>
-    <void property="date">
-     <object class="java.util.Date">
-      <long>1638781369649</long>
-     </object>
-    </void>
-    <void property="stationID">
-     <string>NEW!</string>
-    </void>
-    <void property="target">
-     <int>12</int>
-    </void>
-   </object>
-  </void>
-  <void method="add">
-   <object class="Station">
-    <void property="actual">
-     <int>3</int>
-    </void>
-    <void property="date">
-     <object class="java.util.Date">
-      <long>1638811084636</long>
+      <long>1638815788728</long>
      </object>
     </void>
     <void property="stationID">
