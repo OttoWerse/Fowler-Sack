@@ -16,6 +16,7 @@ public class StationView2 implements IStationView {
     private LinkedList CurrentList = new LinkedList();
     private Color highlight;
 
+    private JFrame JFrame_Main = new JFrame();
     private JList JList_Stations;
     private JTextField JTextField_CurrentStationID, JTextField_CurrentDate, JTextField_CurrentTarget, JTextField_CurrentActual, JTextField_CurrentVariance;
 
@@ -78,8 +79,6 @@ public class StationView2 implements IStationView {
 
     private void initialise() {
         // Create and format main JFrame
-        // GUI Elements
-        JFrame JFrame_Main = new JFrame();
         JFrame_Main.setSize(400, 800);
         JFrame_Main.setLayout(new GridLayout(2, 1));
 
@@ -137,7 +136,7 @@ public class StationView2 implements IStationView {
                     changes.firePropertyChange("Actual", CurrentActual, NewActual);
                     CurrentActual = NewActual;
                 } else {
-                    //TODO GUI ERROR If not number
+                    showError("Keine gültige Zahl!");
                 }
             }
         };
@@ -155,6 +154,10 @@ public class StationView2 implements IStationView {
         JFrame_Main.add(JPanel_Fields);
 
         JFrame_Main.setVisible(true);
+    }
+
+    public void showError(String s) {
+        JOptionPane.showMessageDialog(this.JFrame_Main, s);
     }
 
     //Check if it is a numeric input

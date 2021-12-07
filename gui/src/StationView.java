@@ -16,6 +16,7 @@ public class StationView implements IStationView {
     private LinkedList CurrentList = new LinkedList();
     private Color highlight;
 
+    JFrame JFrame_Main = new JFrame();
     private JList JList_Stations;
     private JTextField JTextField_CurrentStationID, JTextField_CurrentDate, JTextField_CurrentTarget, JTextField_CurrentActual, JTextField_CurrentVariance;
 
@@ -46,7 +47,7 @@ public class StationView implements IStationView {
         int index = this.JList_Stations.getSelectedIndex();
         this.JList_Stations.setListData(this.CurrentList.toArray());
         this.JList_Stations.setSelectedIndex(index);
-        this.updateUI();
+        this.repaint();
     }
 
     public void setHighlight(Color highlight) {
@@ -64,10 +65,10 @@ public class StationView implements IStationView {
 
     public StationView() {
         this.initialise();
-        this.updateUI();
+        this.repaint();
     }
 
-    private void updateUI() {
+    private void repaint() {
         this.JTextField_CurrentActual.repaint();
         this.JTextField_CurrentDate.repaint();
         this.JTextField_CurrentStationID.repaint();
@@ -78,8 +79,6 @@ public class StationView implements IStationView {
 
     private void initialise() {
         // Create and format main JFrame
-        // GUI Elements
-        JFrame JFrame_Main = new JFrame();
         JFrame_Main.setSize(800, 400);
         JFrame_Main.setLayout(new GridLayout(1, 2));
 
@@ -137,7 +136,7 @@ public class StationView implements IStationView {
                     changes.firePropertyChange("Actual", CurrentActual, NewActual);
                     CurrentActual = NewActual;
                 } else {
-                    //TODO GUI ERROR If not number
+                    showError("Keine gültige Zahl!");
                 }
             }
         };
@@ -155,6 +154,10 @@ public class StationView implements IStationView {
         JFrame_Main.add(JPanel_Fields);
 
         JFrame_Main.setVisible(true);
+    }
+
+    public void showError(String s) {
+        JOptionPane.showMessageDialog(this.JFrame_Main, s);
     }
 
     //Check if it is a numeric input

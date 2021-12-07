@@ -10,6 +10,8 @@ public interface IStationView {
     void setVariance(String currentVariance);
     void setCurrentList(LinkedList currentList);
     void setHighlight(Color highlight);
+    void showError(String s);
 
     public void addPropertyChangeListener(PropertyChangeListener l);
+    public void removePropertyChangeListener(PropertyChangeListener l);
 }

@@ -1,6 +1,6 @@
 import java.util.concurrent.TimeUnit;
 
-public class Boot {
+public class StationBinder {
     public static void main(String[] args) throws InterruptedException {
         StationView view1 = new StationView();
         StationViewModel model1 = new StationViewModel(view1);

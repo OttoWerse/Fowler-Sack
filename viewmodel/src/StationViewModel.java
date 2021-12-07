@@ -59,17 +59,15 @@ public class StationViewModel implements PropertyChangeListener {
 
             //Try to update the value and catch if there is an error
             try {
-                int newActualvalue = Integer.parseInt(evt.getNewValue().toString());
-                this.station.setActual(newActualvalue);
+                int newActualValue = Integer.parseInt(evt.getNewValue().toString());
+                this.station.setActual(newActualValue);
                 this.updateVariance();
 
             } catch (NumberFormatException e) {
-                // TODO: Error Message!
-                e.printStackTrace();
+                this.stationView.showError("Ungültige Zahl!");
 
             } catch (StationInvalidValueException e) {
-                // TODO: Error Message!
-                e.printStackTrace();
+                this.stationView.showError("Ungültige Station!");
             }
             //update the StationList XML-File
             this.stationModel.safeStationlist(this.stationList);
