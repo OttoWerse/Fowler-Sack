@@ -4,28 +4,29 @@ import java.beans.PropertyChangeListener;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 
 public class StationViewModel implements PropertyChangeListener {
-    Window window;
+    IStationView stationView;
     LinkedList<Station> stationList;
     Station station;
     StationModel stationModel;
 
 
     //Constructor with path for XML-File
-    public StationViewModel(Window window, String path) {
-        this.window = window;
-        this.window.addPropertyChangeListener(this);
+    public StationViewModel(IStationView stationView, String path) {
+        this.stationView = stationView;
+        this.stationView.addPropertyChangeListener(this);
         this.stationModel = StationModel.getInstance(path);
         this.stationModel.addPropertyChangeListener(this);
         this.loadStationList();
     }
 
     //Constructor with default path for XML-File
-    public StationViewModel(Window window) {
-        this.window = window;
-        this.window.addPropertyChangeListener(this);
+    public StationViewModel(IStationView stationView) {
+        this.stationView = stationView;
+        this.stationView.addPropertyChangeListener(this);
         this.stationModel = StationModel.getInstance();
         this.stationModel.addPropertyChangeListener(this);
         this.loadStationList();
@@ -53,7 +54,7 @@ public class StationViewModel implements PropertyChangeListener {
             //update the current Station with the selected Station
             this.setStation(newStation);
 
-        //Update when Actual changes
+            //Update when Actual changes
         } else if (evt.getPropertyName() == "Actual") {
 
             //Try to update the value and catch if there is an error
@@ -66,7 +67,7 @@ public class StationViewModel implements PropertyChangeListener {
                 // TODO: Error Message!
                 e.printStackTrace();
 
-            }catch (StationInvalidValueException e) {
+            } catch (StationInvalidValueException e) {
                 // TODO: Error Message!
                 e.printStackTrace();
             }
@@ -77,45 +78,44 @@ public class StationViewModel implements PropertyChangeListener {
             this.loadStationList();
 
 
-        //Load the StationList
+            //Load the StationList
         } else if (evt.getPropertyName() == "StationList") {
             this.loadStationList();
         }
     }
 
 
-
     private void loadStationList() {
         this.stationList = this.stationModel.loadStationlist();
-        this.window.setCurrentList(this.stationList);
+        this.stationView.setCurrentList(this.stationList);
     }
 
     public void setStation(Station station) {
         this.station = station;
-        this.window.setStationID(String.valueOf(this.station.getStationID()));
-        this.window.setDate(String.valueOf(this.station.getDate()));
-        this.window.setTarget(String.valueOf(this.station.getTarget()));
-        this.window.setActual(String.valueOf(this.station.getActual()));
+        this.stationView.setStationID(String.valueOf(this.station.getStationID()));
+        this.stationView.setDate(String.valueOf(this.station.getDate()));
+        this.stationView.setTarget(String.valueOf(this.station.getTarget()));
+        this.stationView.setActual(String.valueOf(this.station.getActual()));
         this.updateVariance();
     }
 
     public void addStation() {
-        Station newStation = new Station("NEW!", new Date(), 12, 3);
+        Station newStation = new Station(ThreadLocalRandom.current().nextLong(0, Integer.MAX_VALUE) + "", new Date(ThreadLocalRandom.current().nextLong(0, 1700000000000L)), ThreadLocalRandom.current().nextInt(0, 69420), ThreadLocalRandom.current().nextInt(0, 69420));
         this.stationList.add(newStation);
         this.stationModel.safeStationlist(this.stationList);
         this.loadStationList();
     }
 
     public void updateVariance() {
-        this.window.setVariance(String.valueOf(this.station.getVariance()));
+        this.stationView.setVariance(String.valueOf(this.station.getVariance()));
         if (this.station.getTarget() * -0.10 >= this.station.getVariance()) {
             // System.out.println("RED");
-            this.window.setHighlight(new Color(1.0f, 0.0f, 0.0f));
+            this.stationView.setHighlight(new Color(1.0f, 0.0f, 0.0f));
         } else if (this.station.getTarget() * 0.05 <= this.station.getVariance()) {
             // System.out.println("GREEN");
-            this.window.setHighlight(new Color(0.0f, 1.0f, 0.0f));
+            this.stationView.setHighlight(new Color(0.0f, 1.0f, 0.0f));
         } else {
-            this.window.setHighlight(new Color(0.0f, 0.0f, 0.0f));
+            this.stationView.setHighlight(new Color(0.0f, 0.0f, 0.0f));
         }
     }
 }

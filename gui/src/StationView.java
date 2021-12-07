@@ -8,7 +8,7 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.LinkedList;
 
-public class Window implements StationViewInterface {
+public class StationView implements IStationView {
     private final PropertyChangeSupport changes = new PropertyChangeSupport(this);
 
     // Variables to be displayed
@@ -32,7 +32,9 @@ public class Window implements StationViewInterface {
     }
 
     public void setActual(String currentActual) {
-        this.JTextField_CurrentActual.setText(currentActual);
+        if (!this.JTextField_CurrentActual.hasFocus()) {
+            this.JTextField_CurrentActual.setText(currentActual);
+        }
     }
 
     public void setVariance(String currentVariance) {
@@ -60,18 +62,18 @@ public class Window implements StationViewInterface {
         changes.removePropertyChangeListener(l);
     }
 
-    public Window() {
+    public StationView() {
         this.initialise();
         this.updateUI();
     }
 
     private void updateUI() {
-        this.JTextField_CurrentActual.updateUI();
-        this.JTextField_CurrentDate.updateUI();
-        this.JTextField_CurrentStationID.updateUI();
-        this.JTextField_CurrentTarget.updateUI();
-        this.JTextField_CurrentVariance.updateUI();
-        this.JList_Stations.updateUI();
+        this.JTextField_CurrentActual.repaint();
+        this.JTextField_CurrentDate.repaint();
+        this.JTextField_CurrentStationID.repaint();
+        this.JTextField_CurrentTarget.repaint();
+        this.JTextField_CurrentVariance.repaint();
+        this.JList_Stations.repaint();
     }
 
     private void initialise() {

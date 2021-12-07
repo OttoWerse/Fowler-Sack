@@ -2,11 +2,13 @@ import java.util.concurrent.TimeUnit;
 
 public class Boot {
     public static void main(String[] args) throws InterruptedException {
-        Window view1 = new Window();
+        StationView view1 = new StationView();
         StationViewModel model1 = new StationViewModel(view1);
-        Window view2 = new Window();
+        StationView2 view2 = new StationView2();
         StationViewModel model2 = new StationViewModel(view2);
-        TimeUnit.SECONDS.sleep(15);
-        model1.addStation();
+        for (int i = 0; i < 10; i++) {
+            model1.addStation();
+            TimeUnit.SECONDS.sleep(15);
+        }
     }
 }

@@ -1,7 +1,8 @@
 import java.awt.*;
+import java.beans.PropertyChangeListener;
 import java.util.LinkedList;
 
-public interface StationViewInterface {
+public interface IStationView {
     void setStationID(String currentStationID);
     void setDate(String currentDate);
     void setTarget(String currentTarget);
@@ -9,4 +10,6 @@ public interface StationViewInterface {
     void setVariance(String currentVariance);
     void setCurrentList(LinkedList currentList);
     void setHighlight(Color highlight);
+
+    public void addPropertyChangeListener(PropertyChangeListener l);
 }

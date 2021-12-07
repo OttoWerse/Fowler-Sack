@@ -4,108 +4,720 @@
   <void method="add">
    <object class="Station">
     <void property="actual">
-     <int>70</int>
+     <int>61070</int>
     </void>
     <void property="date">
      <object class="java.util.Date">
-      <long>662684400000</long>
+      <long>1330889703971</long>
      </object>
     </void>
     <void property="stationID">
-     <string>Wert1</string>
+     <string>901863509</string>
     </void>
     <void property="target">
-     <int>12</int>
+     <int>40499</int>
     </void>
    </object>
   </void>
   <void method="add">
    <object class="Station">
     <void property="actual">
-     <int>1</int>
+     <int>269</int>
     </void>
     <void property="date">
      <object class="java.util.Date">
-      <long>1197500400000</long>
+      <long>199468785797</long>
      </object>
     </void>
     <void property="stationID">
-     <string>Wert2</string>
+     <string>1738751075</string>
     </void>
     <void property="target">
-     <int>11</int>
+     <int>13675</int>
     </void>
    </object>
   </void>
   <void method="add">
    <object class="Station">
     <void property="actual">
-     <int>127</int>
+     <int>47609</int>
     </void>
     <void property="date">
      <object class="java.util.Date">
-      <long>1583881200000</long>
+      <long>572450283637</long>
      </object>
     </void>
     <void property="stationID">
-     <string>Wert3</string>
+     <string>1177458462</string>
     </void>
     <void property="target">
-     <int>230</int>
+     <int>26845</int>
     </void>
    </object>
   </void>
   <void method="add">
    <object class="Station">
     <void property="actual">
-     <int>666</int>
+     <int>55475</int>
     </void>
     <void property="date">
      <object class="java.util.Date">
-      <long>1093557600000</long>
+      <long>964893980337</long>
      </object>
     </void>
     <void property="stationID">
-     <string>Wert4</string>
+     <string>1164639690</string>
     </void>
     <void property="target">
-     <int>77</int>
+     <int>57105</int>
     </void>
    </object>
   </void>
   <void method="add">
    <object class="Station">
     <void property="actual">
-     <int>1337</int>
+     <int>60786</int>
     </void>
     <void property="date">
      <object class="java.util.Date">
-      <long>1638815732781</long>
+      <long>562726656946</long>
      </object>
     </void>
     <void property="stationID">
-     <string>NEW!</string>
+     <string>1240340582</string>
     </void>
     <void property="target">
-     <int>12</int>
+     <int>52571</int>
     </void>
    </object>
   </void>
   <void method="add">
    <object class="Station">
     <void property="actual">
-     <int>3</int>
+     <int>41777</int>
     </void>
     <void property="date">
      <object class="java.util.Date">
-      <long>1638815788728</long>
+      <long>158204587356</long>
      </object>
     </void>
     <void property="stationID">
-     <string>NEW!</string>
+     <string>1792613516</string>
     </void>
     <void property="target">
-     <int>12</int>
+     <int>7650</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Station">
+    <void property="actual">
+     <int>55241</int>
+    </void>
+    <void property="date">
+     <object class="java.util.Date">
+      <long>678375242289</long>
+     </object>
+    </void>
+    <void property="stationID">
+     <string>1536871793</string>
+    </void>
+    <void property="target">
+     <int>4692</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Station">
+    <void property="actual">
+     <int>22438</int>
+    </void>
+    <void property="date">
+     <object class="java.util.Date">
+      <long>57576373873</long>
+     </object>
+    </void>
+    <void property="stationID">
+     <string>1995965867</string>
+    </void>
+    <void property="target">
+     <int>26348</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Station">
+    <void property="actual">
+     <int>2043</int>
+    </void>
+    <void property="date">
+     <object class="java.util.Date">
+      <long>1327073483259</long>
+     </object>
+    </void>
+    <void property="stationID">
+     <string>1102664736</string>
+    </void>
+    <void property="target">
+     <int>11827</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Station">
+    <void property="actual">
+     <int>59831</int>
+    </void>
+    <void property="date">
+     <object class="java.util.Date">
+      <long>948273833424</long>
+     </object>
+    </void>
+    <void property="stationID">
+     <string>1642612728</string>
+    </void>
+    <void property="target">
+     <int>47066</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Station">
+    <void property="actual">
+     <int>64875</int>
+    </void>
+    <void property="date">
+     <object class="java.util.Date">
+      <long>1623996743113</long>
+     </object>
+    </void>
+    <void property="stationID">
+     <string>373145028</string>
+    </void>
+    <void property="target">
+     <int>65217</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Station">
+    <void property="actual">
+     <int>314</int>
+    </void>
+    <void property="date">
+     <object class="java.util.Date">
+      <long>626977622096</long>
+     </object>
+    </void>
+    <void property="stationID">
+     <string>1800742432</string>
+    </void>
+    <void property="target">
+     <int>10740</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Station">
+    <void property="actual">
+     <int>21948</int>
+    </void>
+    <void property="date">
+     <object class="java.util.Date">
+      <long>847153146382</long>
+     </object>
+    </void>
+    <void property="stationID">
+     <string>815671510</string>
+    </void>
+    <void property="target">
+     <int>49253</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Station">
+    <void property="actual">
+     <int>36171</int>
+    </void>
+    <void property="date">
+     <object class="java.util.Date">
+      <long>463362430807</long>
+     </object>
+    </void>
+    <void property="stationID">
+     <string>604291905</string>
+    </void>
+    <void property="target">
+     <int>14351</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Station">
+    <void property="actual">
+     <int>63701</int>
+    </void>
+    <void property="date">
+     <object class="java.util.Date">
+      <long>594616254306</long>
+     </object>
+    </void>
+    <void property="stationID">
+     <string>393067046</string>
+    </void>
+    <void property="target">
+     <int>4561</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Station">
+    <void property="actual">
+     <int>60123</int>
+    </void>
+    <void property="date">
+     <object class="java.util.Date">
+      <long>786324610915</long>
+     </object>
+    </void>
+    <void property="stationID">
+     <string>1592918698</string>
+    </void>
+    <void property="target">
+     <int>10313</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Station">
+    <void property="actual">
+     <int>239</int>
+    </void>
+    <void property="date">
+     <object class="java.util.Date">
+      <long>943465348924</long>
+     </object>
+    </void>
+    <void property="stationID">
+     <string>1901856856</string>
+    </void>
+    <void property="target">
+     <int>1397</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Station">
+    <void property="actual">
+     <int>47068</int>
+    </void>
+    <void property="date">
+     <object class="java.util.Date">
+      <long>1305051352918</long>
+     </object>
+    </void>
+    <void property="stationID">
+     <string>2019395131</string>
+    </void>
+    <void property="target">
+     <int>41651</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Station">
+    <void property="actual">
+     <int>39286</int>
+    </void>
+    <void property="date">
+     <object class="java.util.Date">
+      <long>475790607662</long>
+     </object>
+    </void>
+    <void property="stationID">
+     <string>498030870</string>
+    </void>
+    <void property="target">
+     <int>39328</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Station">
+    <void property="actual">
+     <int>12086</int>
+    </void>
+    <void property="date">
+     <object class="java.util.Date">
+      <long>1374522517605</long>
+     </object>
+    </void>
+    <void property="stationID">
+     <string>220510233</string>
+    </void>
+    <void property="target">
+     <int>10312</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Station">
+    <void property="actual">
+     <int>58457</int>
+    </void>
+    <void property="date">
+     <object class="java.util.Date">
+      <long>1356133270463</long>
+     </object>
+    </void>
+    <void property="stationID">
+     <string>779371936</string>
+    </void>
+    <void property="target">
+     <int>11414</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Station">
+    <void property="actual">
+     <int>41738</int>
+    </void>
+    <void property="date">
+     <object class="java.util.Date">
+      <long>936656231452</long>
+     </object>
+    </void>
+    <void property="stationID">
+     <string>1769714151</string>
+    </void>
+    <void property="target">
+     <int>44405</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Station">
+    <void property="actual">
+     <int>34702</int>
+    </void>
+    <void property="date">
+     <object class="java.util.Date">
+      <long>620968447178</long>
+     </object>
+    </void>
+    <void property="stationID">
+     <string>2058531970</string>
+    </void>
+    <void property="target">
+     <int>19508</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Station">
+    <void property="actual">
+     <int>3812</int>
+    </void>
+    <void property="date">
+     <object class="java.util.Date">
+      <long>758224017414</long>
+     </object>
+    </void>
+    <void property="stationID">
+     <string>604554000</string>
+    </void>
+    <void property="target">
+     <int>17385</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Station">
+    <void property="actual">
+     <int>63320</int>
+    </void>
+    <void property="date">
+     <object class="java.util.Date">
+      <long>1116504787445</long>
+     </object>
+    </void>
+    <void property="stationID">
+     <string>2128516808</string>
+    </void>
+    <void property="target">
+     <int>60113</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Station">
+    <void property="actual">
+     <int>52393</int>
+    </void>
+    <void property="date">
+     <object class="java.util.Date">
+      <long>1235396976292</long>
+     </object>
+    </void>
+    <void property="stationID">
+     <string>581149796</string>
+    </void>
+    <void property="target">
+     <int>4275</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Station">
+    <void property="actual">
+     <int>46463</int>
+    </void>
+    <void property="date">
+     <object class="java.util.Date">
+      <long>561035210773</long>
+     </object>
+    </void>
+    <void property="stationID">
+     <string>376068189</string>
+    </void>
+    <void property="target">
+     <int>36520</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Station">
+    <void property="actual">
+     <int>49798</int>
+    </void>
+    <void property="date">
+     <object class="java.util.Date">
+      <long>1547341075487</long>
+     </object>
+    </void>
+    <void property="stationID">
+     <string>631457529</string>
+    </void>
+    <void property="target">
+     <int>22452</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Station">
+    <void property="actual">
+     <int>32067</int>
+    </void>
+    <void property="date">
+     <object class="java.util.Date">
+      <long>1508123220502</long>
+     </object>
+    </void>
+    <void property="stationID">
+     <string>851221512</string>
+    </void>
+    <void property="target">
+     <int>58563</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Station">
+    <void property="actual">
+     <int>22777</int>
+    </void>
+    <void property="date">
+     <object class="java.util.Date">
+      <long>1309104965105</long>
+     </object>
+    </void>
+    <void property="stationID">
+     <string>1744672335</string>
+    </void>
+    <void property="target">
+     <int>35293</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Station">
+    <void property="actual">
+     <int>54390</int>
+    </void>
+    <void property="date">
+     <object class="java.util.Date">
+      <long>14839525761</long>
+     </object>
+    </void>
+    <void property="stationID">
+     <string>490272972</string>
+    </void>
+    <void property="target">
+     <int>65587</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Station">
+    <void property="actual">
+     <int>48921</int>
+    </void>
+    <void property="date">
+     <object class="java.util.Date">
+      <long>148873934446</long>
+     </object>
+    </void>
+    <void property="stationID">
+     <string>2100315146</string>
+    </void>
+    <void property="target">
+     <int>3985</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Station">
+    <void property="actual">
+     <int>64812</int>
+    </void>
+    <void property="date">
+     <object class="java.util.Date">
+      <long>1684383562890</long>
+     </object>
+    </void>
+    <void property="stationID">
+     <string>1233613305</string>
+    </void>
+    <void property="target">
+     <int>58135</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Station">
+    <void property="actual">
+     <int>33961</int>
+    </void>
+    <void property="date">
+     <object class="java.util.Date">
+      <long>767200676794</long>
+     </object>
+    </void>
+    <void property="stationID">
+     <string>54252223</string>
+    </void>
+    <void property="target">
+     <int>24603</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Station">
+    <void property="actual">
+     <int>53513</int>
+    </void>
+    <void property="date">
+     <object class="java.util.Date">
+      <long>1508921206287</long>
+     </object>
+    </void>
+    <void property="stationID">
+     <string>487380133</string>
+    </void>
+    <void property="target">
+     <int>51958</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Station">
+    <void property="actual">
+     <int>36031</int>
+    </void>
+    <void property="date">
+     <object class="java.util.Date">
+      <long>626406588148</long>
+     </object>
+    </void>
+    <void property="stationID">
+     <string>774519103</string>
+    </void>
+    <void property="target">
+     <int>46922</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Station">
+    <void property="actual">
+     <int>46274</int>
+    </void>
+    <void property="date">
+     <object class="java.util.Date">
+      <long>1043603736772</long>
+     </object>
+    </void>
+    <void property="stationID">
+     <string>908580352</string>
+    </void>
+    <void property="target">
+     <int>30361</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Station">
+    <void property="actual">
+     <int>4388</int>
+    </void>
+    <void property="date">
+     <object class="java.util.Date">
+      <long>1255388097136</long>
+     </object>
+    </void>
+    <void property="stationID">
+     <string>1543022178</string>
+    </void>
+    <void property="target">
+     <int>15718</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Station">
+    <void property="actual">
+     <int>54299</int>
+    </void>
+    <void property="date">
+     <object class="java.util.Date">
+      <long>786944718741</long>
+     </object>
+    </void>
+    <void property="stationID">
+     <string>1648998635</string>
+    </void>
+    <void property="target">
+     <int>40065</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Station">
+    <void property="actual">
+     <int>58092</int>
+    </void>
+    <void property="date">
+     <object class="java.util.Date">
+      <long>920540274596</long>
+     </object>
+    </void>
+    <void property="stationID">
+     <string>1070982934</string>
+    </void>
+    <void property="target">
+     <int>45347</int>
     </void>
    </object>
   </void>
