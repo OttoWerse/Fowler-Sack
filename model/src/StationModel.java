@@ -111,19 +111,6 @@ public class StationModel implements IStationModel{
         return loadedStationList;
     }
 
-
-
-
-    //Getters and Setters
-    public String getDefaultPath() {
-        return defaultPath;
-    }
-
-    public void setDefaultPath(String defaultPath) {
-        this.defaultPath = defaultPath;
-    }
-
-
     //Adding and removing a Property change listener
     public void addPropertyChangeListener(PropertyChangeListener l) {
         changes.addPropertyChangeListener(l);
