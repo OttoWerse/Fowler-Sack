@@ -9,11 +9,6 @@ public interface IStationModel {
 
     LinkedList<Station> loadStationlist();
 
-    //Getter and Setter
-    String getDefaultPath();
-
-    void setDefaultPath(String path);
-
     //Property Listener
     void addPropertyChangeListener(PropertyChangeListener l);
     void removePropertyChangeListener(PropertyChangeListener l);
