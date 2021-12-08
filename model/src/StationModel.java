@@ -3,10 +3,18 @@ import java.beans.PropertyChangeSupport;
 import java.beans.XMLDecoder;
 import java.beans.XMLEncoder;
 import java.io.*;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.LinkedList;
 
+/**
+ * StationModel is a singleton class is which is intialised with a path where an xml-file is or will be stored.
+ * The class is used to store and load a LinkedList with Stations in an xml-file and load it from the same file.
+ * If the class is once intialised the path to the file cant be changed.
+ * Also can a PropertyChangeListener be attached which will fire when while storing a file a change is detected.
+ *
+ * @author      Kendrick Bollens
+ * @date        2021-12-02
+ * @version     1.3
+ */
 public class StationModel implements IStationModel{
 
     //Singleton Instance
@@ -112,12 +120,12 @@ public class StationModel implements IStationModel{
     }
 
     //Adding and removing a Property change listener
-    public void addPropertyChangeListener(PropertyChangeListener l) {
-        changes.addPropertyChangeListener(l);
+    public void addPropertyChangeListener(PropertyChangeListener changeListener) {
+        changes.addPropertyChangeListener(changeListener);
     }
 
-    public void removePropertyChangeListener(PropertyChangeListener l) {
-        changes.removePropertyChangeListener(l);
+    public void removePropertyChangeListener(PropertyChangeListener changeListener) {
+        changes.removePropertyChangeListener(changeListener);
     }
 
 }
