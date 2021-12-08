@@ -8,6 +8,13 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.LinkedList;
 
+/**
+ * View for a station and the station list
+ *
+ * @author Otto Werse
+ * @version 0.1
+ * @date 2021-12-01
+ */
 public class StationView implements IStationView {
     private final PropertyChangeSupport changes = new PropertyChangeSupport(this);
 
@@ -68,6 +75,10 @@ public class StationView implements IStationView {
         this.repaint();
     }
 
+
+    /**
+     * redraws the entire UI to update to new contents
+     */
     private void repaint() {
         this.JTextField_CurrentActual.repaint();
         this.JTextField_CurrentDate.repaint();
@@ -77,6 +88,9 @@ public class StationView implements IStationView {
         this.JList_Stations.repaint();
     }
 
+    /**
+     * initializes the UI without values to display
+     */
     private void initialise() {
         // Create and format main JFrame
         JFrame_Main.setSize(800, 400);
@@ -160,7 +174,12 @@ public class StationView implements IStationView {
         JOptionPane.showMessageDialog(this.JFrame_Main, s);
     }
 
-    //Check if it is a numeric input
+    /**
+     * check if input is a numeric input
+     *
+     * @param string the input string to check for illegal characters in a numeric
+     * @return true if the input is a numeric
+     */
     public static boolean isNumericInput(String string) {
         int intValue;
 

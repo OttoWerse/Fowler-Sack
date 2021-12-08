@@ -7,7 +7,13 @@ import java.awt.event.ActionListener;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.LinkedList;
-
+/**
+ * View for a station and the station list
+ *
+ * @author Otto Werse
+ * @version 0.1
+ * @date 2021-12-05
+ */
 public class StationView2 implements IStationView {
     private final PropertyChangeSupport changes = new PropertyChangeSupport(this);
 

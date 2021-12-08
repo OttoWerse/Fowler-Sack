@@ -7,14 +7,20 @@ import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 
+/**
+ * View Model for a station and the station list
+ *
+ * @author Otto Werse
+ * @version 0.1
+ * @date 2021-12-01
+ */
 public class StationViewModel implements PropertyChangeListener {
-    IStationView stationView;
-    LinkedList<Station> stationList;
-    Station station;
-    StationModel stationModel;
+    private final IStationView stationView;
+    private final StationModel stationModel;
+    private LinkedList<Station> stationList;
+    private Station station;
 
-
-    //Constructor with path for XML-File
+    // Constructor with path for XML-File
     public StationViewModel(IStationView stationView, String path) {
         this.stationView = stationView;
         this.stationView.addPropertyChangeListener(this);
@@ -23,7 +29,7 @@ public class StationViewModel implements PropertyChangeListener {
         this.loadStationList();
     }
 
-    //Constructor with default path for XML-File
+    // Constructor with default path for XML-File
     public StationViewModel(IStationView stationView) {
         this.stationView = stationView;
         this.stationView.addPropertyChangeListener(this);
@@ -36,28 +42,28 @@ public class StationViewModel implements PropertyChangeListener {
     public void propertyChange(PropertyChangeEvent evt) {
         // System.out.println(evt);
 
-        //Update the complete Station
+        // Update the complete Station
         if (evt.getPropertyName() == "StationID") {
 
-            //Gets the selected Station ID
+            // Gets the selected Station ID
             String selectedStationID = evt.getNewValue().toString();
 
-            //Get every Element with the StationID
+            // Get every Element with the StationID
             List<Station> shortlist = this.stationList.stream().filter(s -> selectedStationID.equals(s.getStationID())).collect(Collectors.toList());
 
-            //Get the index from the first Element pulled from the Stationlist
+            // Get the index from the first Element pulled from the Stationlist
             int index = this.stationList.indexOf(shortlist.get(0));
 
-            //Get the new Station
+            // Get the new Station
             Station newStation = this.stationList.get(index);
 
-            //update the current Station with the selected Station
+            // Update the current Station with the selected Station
             this.setStation(newStation);
 
-            //Update when Actual changes
+            // Update when Actual changes
         } else if (evt.getPropertyName() == "Actual") {
 
-            //Try to update the value and catch if there is an error
+            // Try to update the value and catch if there is an error
             try {
                 int newActualValue = Integer.parseInt(evt.getNewValue().toString());
                 this.station.setActual(newActualValue);
@@ -69,25 +75,32 @@ public class StationViewModel implements PropertyChangeListener {
             } catch (StationInvalidValueException e) {
                 this.stationView.showError("Ungültige Station!");
             }
-            //update the StationList XML-File
+            // Update the StationList XML-File
             this.stationModel.safeStationlist(this.stationList);
 
-            //reload the StationList from the XML-File
+            // Reload the StationList from the XML-File
             this.loadStationList();
 
 
-            //Load the StationList
+            // Load the StationList
         } else if (evt.getPropertyName() == "StationList") {
             this.loadStationList();
         }
     }
 
-
+    /**
+     * Updates the station list
+     */
     private void loadStationList() {
         this.stationList = this.stationModel.loadStationlist();
         this.stationView.setCurrentList(this.stationList);
     }
 
+    /**
+     * Changes the currently selected station and updates fields accordingly
+     *
+     * @param station the station object to get values to display from
+     */
     public void setStation(Station station) {
         this.station = station;
         this.stationView.setStationID(String.valueOf(this.station.getStationID()));
@@ -97,6 +110,9 @@ public class StationViewModel implements PropertyChangeListener {
         this.updateVariance();
     }
 
+    /**
+     * Adds a randomly generated station
+     */
     public void addStation() {
         Station newStation = new Station(ThreadLocalRandom.current().nextLong(0, Integer.MAX_VALUE) + "", new Date(ThreadLocalRandom.current().nextLong(0, 1700000000000L)), ThreadLocalRandom.current().nextInt(0, 69420), ThreadLocalRandom.current().nextInt(0, 69420));
         this.stationList.add(newStation);
@@ -104,6 +120,9 @@ public class StationViewModel implements PropertyChangeListener {
         this.loadStationList();
     }
 
+    /**
+     * Computes the desired color for the variance field depending on its contents
+     */
     public void updateVariance() {
         this.stationView.setVariance(String.valueOf(this.station.getVariance()));
         if (this.station.getTarget() * -0.10 >= this.station.getVariance()) {
